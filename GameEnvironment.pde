@@ -9,7 +9,7 @@ class GameEnvironment {
   int takeSequenceStart;
   int deadStart;
   DDD d;
-
+  int highestWages = 0;
   GameEnvironment() {
 
     prepareLevels();
@@ -18,28 +18,39 @@ class GameEnvironment {
   }
 
   void prepareLevels() { 
+    loadLevels();
+    
+    //loadTestLevels();
+  }
+
+  void loadTestLevels() {
+    //test level //
+    
+    Level l;
+    l=new Level(bike);
+
+    l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, height, color(0, 255, 0)));
+
+    levels.add(l);
+    l=new Level(ski);
+
+    l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, height, color(0, 255, 0)));
+
+    levels.add(l);
+    
+  }
+
+  void loadLevels() {
     levels = new ArrayList<Level>();
 
     //level 1:
     Level l;
-
-    // test level //
-    //l=new Level(bike);
-
-    //l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, height, color(0, 255, 0)));
-
-    //levels.add(l);
-    //l=new Level(ski);
-
-    //l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
-    //l.platforms.add(new Platform(0, height, color(0, 255, 0)));
-
-    //levels.add(l);
 
     l= new Level(bike);
 
@@ -189,7 +200,7 @@ class GameEnvironment {
       }
     }
   }
-  
+
   void showDeadState() {
 
     color c;
@@ -222,14 +233,29 @@ class GameEnvironment {
       d.reset();
       currentLevel=0;
       lives=3;
+      if (score > highestWages)
+        highestWages =score;
     }
   }
   void showMenu() {
     background(0);
-    fill(255);
-    text("Press <s> to start", 100, 100);
-
+    fill(0, 255, 255);
+    textSize(15);
+    text("Highest wages paid today ", 50, 50);
+    fill(255, 255, 0); 
+    text(highestWages, 290, 50);
+    fill(0, 255, 0); 
+    text("How good are you", 100, 100);
+    fill(0, 255, 255);
+    text("A>", 150, 150);
+    fill(255, 255, 0); 
+    text("Novice", 180, 150);
+  }
+  void showStory() {
     String story = "";
+
+    story="1";
+    println(story);
   }
   void showCrashing() {
     d.show();
@@ -295,7 +321,7 @@ class GameEnvironment {
       d.movement(keyCode);
       d.movement(key);
     } else if (gameState == menu) {
-      if (key == 's' || key =='S') {
+      if (key == 'a' || key =='A') {
         gameState=takeSequence;   
         startTakeSequence();
         prepareLevels();
