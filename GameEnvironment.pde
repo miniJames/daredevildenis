@@ -22,93 +22,112 @@ class GameEnvironment {
 
     //level 1:
     Level l;
-    l= new Level(bike);
+
+    // test level //
+    l=new Level(bike);
 
     l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
     l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
     l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
     l.platforms.add(new Platform(0, height, color(0, 255, 0)));
-        //l.obstacles.add(new Obstacle(width, 465, 30,30, chopper));
-    //add obstacles.
-    l.obstacles.add(new Obstacle(300, 120, 30, 40, house));
-    l.treats.add(new Treat(302, 60, 28, 20, 1, 20, true));
-    l.obstacles.add(new Obstacle(145, 365, 30, 40, tree));
-    l.treats.add(new Treat(148, 305, 28, 20, 3, 20, true));
-    l.obstacles.add(new Obstacle(30, 250, 30, 30, ambulance));
-    l.treats.add(new Treat(31, 185, 25, 22, 2, 20, true, true));
 
-
-    l.obstacles.add(new Obstacle(250, 415, 30, 30, spider));
-    l.treats.add(new Treat(251, height-20, 26, 20, 4, 20, true));
-    //levels.add(l);
-
-    l = new Level(waterSki);
-
-    l.platforms.add(new Platform(0, 125, color(0, 0, 255)));
-    l.platforms.add(new Platform(0, 250, color(0, 0, 255)));
-    l.platforms.add(new Platform(0, 375, color(0, 0, 255)));
-    l.platforms.add(new Platform(0, height, color(0, 0, 255)));
-
-    l.obstacles.add(new Obstacle(100, 125, 40, 30, lighthouse));
-    l.treats.add(new Treat(110, 65, 20, 20, 1, 20, true));
-
-    l.obstacles.add(new Obstacle(350, 415, 30, 30, spider));
-    l.treats.add(new Treat(350, height-20, 30, 20, 3, 20, true));
-
-    l.obstacles.add(new Obstacle(150, 385, 30, 20, whale));
-    l.treats.add(new Treat(152, 325, 25, 20, 3, 20, true));
-
-    l.obstacles.add(new Obstacle(100, 250, 30, 35, boat));
-    l.treats.add(new Treat(102, 185, 30, 20, 2, 20, true, true));
-
-
-
-    //levels.add(l);
-
-    l = new Level(ski);
-
-    l.platforms.add(new Platform(0, 125, color(255)));
-    l.platforms.add(new Platform(0, 250, color(255)));
-    l.platforms.add(new Platform(0, 375, color(255)));
-    l.platforms.add(new Platform(0, height, color(255)));
-
-    l.obstacles.add(new Obstacle(175, 120, 30, 40, cabin));
-    l.treats.add(new Treat(180, 60, 25, 20, 1, 20, true));
-    l.obstacles.add(new Obstacle(250, 415, 30, 30, spider));
-    l.treats.add(new Treat(250, height-20, 30, 20, 3, 20, true));
-    l.obstacles.add(new Obstacle(150, 255, 25, 25, snowball));
-    l.treats.add(new Treat(152, 190, 22, 25, 2, 20, true, true));
-    l.obstacles.add(new Obstacle(100, 375, 30, 30, snowman));
-    l.treats.add(new Treat(105, 305, 25, 30, 3, 20, true));
-
-    //levels.add(l);
-    
-    l= new Level(bike);
-    //add obstacles.
-    l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
-    l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
-    l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
-    l.platforms.add(new Platform(0, height, color(0, 255, 0)));
-    
-    l.obstacles.add(new Obstacle(125, 125,30,30, house));
-    l.treats.add(new Treat(127, 60, 28, 20, 1, 20, true));
-   
-    
-    l.obstacles.add(new Obstacle(150, 375,30,30, tree));
-    l.treats.add(new Treat(148, 305, 28, 20, 3, 20, true, false));
-    
-    l.obstacles.add(new Obstacle(150, 250,30,30, ambulance));
-    l.treats.add(new Treat(150, 185, 25, 22, 2, 20, true, true));
-    
-    l.obstacles.add(new Obstacle(250, height,30,30, house));
-    l.treats.add(new Treat(250, height - 30, 28, 20, 4, 20, true));
-    
-    l.obstacles.add(new Obstacle(width-125, 125,30,30, police));
-    l.treats.add(new Treat(width-125,125,10,20,1,20,true,false));
-    l.obstacles.add(new Obstacle(width, 465, 30,30, chopper));
-    
-    
     levels.add(l);
+    l=new Level(ski);
+
+    l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
+    l.platforms.add(new Platform(0, height, color(0, 255, 0)));
+
+    levels.add(l);
+
+    //l= new Level(bike);
+
+    //l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, height, color(0, 255, 0)));
+
+    ////add obstacles.
+    //l.obstacles.add(new Obstacle(300, 120, 30, 40, house));
+    //l.treats.add(new Treat(302, 60, 28, 20, 1, 20, true));
+    //l.obstacles.add(new Obstacle(145, 365, 30, 40, tree));
+    //l.treats.add(new Treat(148, 305, 28, 20, 3, 20, true));
+    //l.obstacles.add(new Obstacle(30, 250, 30, 30, ambulance));
+    //l.treats.add(new Treat(31, 185, 25, 22, 2, 20, true, true));
+
+
+    //l.obstacles.add(new Obstacle(250, 415, 30, 30, spider));
+    //l.treats.add(new Treat(251, height-20, 26, 20, 4, 20, true));
+    //levels.add(l);
+
+    //l = new Level(waterSki);
+
+    //l.platforms.add(new Platform(0, 125, color(0, 0, 255)));
+    //l.platforms.add(new Platform(0, 250, color(0, 0, 255)));
+    //l.platforms.add(new Platform(0, 375, color(0, 0, 255)));
+    //l.platforms.add(new Platform(0, height, color(0, 0, 255)));
+
+    //l.obstacles.add(new Obstacle(100, 125, 40, 30, lighthouse));
+    //l.treats.add(new Treat(110, 65, 20, 20, 1, 20, true));
+
+    //l.obstacles.add(new Obstacle(350, 415, 30, 30, spider));
+    //l.treats.add(new Treat(350, height-20, 30, 20, 3, 20, true));
+
+    //l.obstacles.add(new Obstacle(150, 385, 30, 20, whale));
+    //l.treats.add(new Treat(152, 325, 25, 20, 3, 20, true));
+
+    //l.obstacles.add(new Obstacle(100, 250, 30, 35, boat));
+    //l.treats.add(new Treat(102, 185, 30, 20, 2, 20, true, true));
+
+
+
+    //levels.add(l);
+
+    //l = new Level(ski);
+
+    //l.platforms.add(new Platform(0, 125, color(255)));
+    //l.platforms.add(new Platform(0, 250, color(255)));
+    //l.platforms.add(new Platform(0, 375, color(255)));
+    //l.platforms.add(new Platform(0, height, color(255)));
+
+    //l.obstacles.add(new Obstacle(175, 120, 30, 40, cabin));
+    //l.treats.add(new Treat(180, 60, 25, 20, 1, 20, true));
+    //l.obstacles.add(new Obstacle(250, 415, 30, 30, spider));
+    //l.treats.add(new Treat(250, height-20, 30, 20, 3, 20, true));
+    //l.obstacles.add(new Obstacle(150, 255, 25, 25, snowball));
+    //l.treats.add(new Treat(152, 190, 22, 25, 2, 20, true, true));
+    //l.obstacles.add(new Obstacle(100, 375, 30, 30, snowman));
+    //l.treats.add(new Treat(105, 305, 25, 30, 3, 20, true));
+
+    ////levels.add(l);
+
+    //l= new Level(bike);
+    ////add obstacles.
+    //l.platforms.add(new Platform(0, 125, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, 250, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
+    //l.platforms.add(new Platform(0, height, color(0, 255, 0)));
+
+    //l.obstacles.add(new Obstacle(125, 125,30,30, house));
+    //l.treats.add(new Treat(127, 60, 28, 20, 1, 20, true));
+
+
+    //l.obstacles.add(new Obstacle(150, 375,30,30, tree));
+    //l.treats.add(new Treat(148, 305, 28, 20, 3, 20, true, false));
+
+    //l.obstacles.add(new Obstacle(150, 250,30,30, ambulance));
+    //l.treats.add(new Treat(150, 185, 25, 22, 2, 20, true, true));
+
+    //l.obstacles.add(new Obstacle(250, height,30,30, house));
+    //l.treats.add(new Treat(250, height - 30, 28, 20, 4, 20, true));
+
+    //l.obstacles.add(new Obstacle(width-125, 125,30,30, police));
+    //l.treats.add(new Treat(width-125,125,10,20,1,20,true,false));
+    //l.obstacles.add(new Obstacle(width, 465, 30,30, chopper));
+
+
+    //levels.add(l);
   }
 
   void show() {
@@ -141,15 +160,16 @@ class GameEnvironment {
         score += d.treatValue;
         d.treatValue=0;
       }
-
+      println("DENIS LEVEL:", d.level);
       if (d.level==4 ) {
         currentLevel++;
-
+        d.level=0;
         //println( d.state);
         //println(gameState);
-        if (currentLevel==levels.size()) {
+        if (currentLevel>=levels.size()) {
           //gameState = menu;
           currentLevel=0;
+          d.reset();
         } else {
           d.reset();//=new DDD(levels.get(currentLevel).platforms);
           d.platforms=levels.get(currentLevel).platforms;
@@ -166,9 +186,8 @@ class GameEnvironment {
       background(0);
       fill(255);
       text("Press <s> to start", 100, 100);
-      
+
       String story = "";
-     
     } else if (gameState==dead) {
 
       color c;
