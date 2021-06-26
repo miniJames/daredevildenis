@@ -6,7 +6,7 @@ class Obstacle {
   int w = 30;
   int type = 0;
   float vy;
-  int spiderDir = 1;
+
   int level;
   Obstacle(int _x, int _y, int _w, int _h, int _t) {
     x=_x;
@@ -16,18 +16,19 @@ class Obstacle {
     w = _w;
     h=_h;
   }
-
+  void drawObstacle() {
+  }
   void show() {
-
+    drawObstacle();
 
     if (type==house) {
-      drawHouse();
+      //drawHouse();
     } else if (type==tree) {
-      drawTree();
+      //drawTree();
     } else if (type == ambulance) {
-      drawAmbulance();
+      //drawAmbulance();
     } else if (type==spider) {
-      drawSpider();
+      //drawSpider();
     } else if (type == lighthouse) {
       drawLightHouse();
     } else if (type == boat) {
@@ -56,16 +57,10 @@ class Obstacle {
 
   Treat move() {
     Treat rtrn=null;
-    if (type==ambulance || type == boat || type == snowball) {
+    if ( type == boat || type == snowball) {
       x+=2;
       if (x==width) { 
         x=0;
-      }
-    } else if (type==spider) {
-      h+=spiderDir;
-      //println(spiderDir);
-      if (h<30 || h>110) {
-        spiderDir *=-1;
       }
     } else if (type==police) {
       vy+=gravity;
@@ -228,37 +223,37 @@ class Obstacle {
     popMatrix();
   }
 
-  void drawHouse() {
-    pushMatrix();
-    translate(x, y);
-    fill(255);
-    rect(0, 15, 30, 20);
+  //void drawHouse() {
+  //  pushMatrix();
+  //  translate(x, y);
+  //  fill(255);
+  //  rect(0, 15, 30, 20);
 
-    //roof
-    fill(255, 0, 0);
-    beginShape();
-    vertex(0, 15);
-    vertex(15, 0);
-    vertex(30, 15);
-    endShape();
+  //  //roof
+  //  fill(255, 0, 0);
+  //  beginShape();
+  //  vertex(0, 15);
+  //  vertex(15, 0);
+  //  vertex(30, 15);
+  //  endShape();
 
-    fill(0);
-    rect(3, 17, 8, 6);
-    //door
-    fill(0, 0, 255);
-    rect(3, 25, 8, 10);
+  //  fill(0);
+  //  rect(3, 17, 8, 6);
+  //  //door
+  //  fill(0, 0, 255);
+  //  rect(3, 25, 8, 10);
 
-    //windows
-    fill(0, 255, 0);
-    rect(14, 17, 6, 6);
-    rect(22, 17, 6, 6);
-    rect(14, 25, 6, 6);
-    rect(22, 25, 6, 6);
-    fill(0);
-    rect(18, 17, 5, 6);
-    rect(18, 25, 5, 6);
-    popMatrix();
-  }
+  //  //windows
+  //  fill(0, 255, 0);
+  //  rect(14, 17, 6, 6);
+  //  rect(22, 17, 6, 6);
+  //  rect(14, 25, 6, 6);
+  //  rect(22, 25, 6, 6);
+  //  fill(0);
+  //  rect(18, 17, 5, 6);
+  //  rect(18, 25, 5, 6);
+  //  popMatrix();
+  //}
 
   void drawPolice() {
     pushMatrix();
@@ -273,18 +268,6 @@ class Obstacle {
     translate(x, y);
     fill(255, 0, 0);
     ellipse(15, 15, 30, 20);
-    popMatrix();
-  }
-
-  void drawTree() {
-    pushMatrix();
-    translate(x, y);
-    fill(255, 64, 0);
-    rect(12, 0, 5, h);
-    fill(255, 255, 0);
-    ellipse(7, 12, 25, 20);
-    fill(0, 255, 0);
-    ellipse(15, 10, 30, 25);
     popMatrix();
   }
   void drawAmbulance() {
@@ -342,52 +325,52 @@ class Obstacle {
     popMatrix();
   }
 
-  void drawSpider() {
+  //void drawSpider() {
 
-    pushMatrix();
-    translate(x, y);
-    int spacer = 15;
-    //web
-    fill(255, 255, 0);
-    rect(12, 0, 5, h-20);
+  //  pushMatrix();
+  //  translate(x, y);
+  //  int spacer = 15;
+  //  //web
+  //  fill(255, 255, 0);
+  //  rect(12, 0, 5, h-20);
 
-    //body
-    fill(255, 0, 0);
-    ellipse(15, h-17, 20, 15);
+  //  //body
+  //  fill(255, 0, 0);
+  //  ellipse(15, h-17, 20, 15);
 
-    //legs
-    fill(0);
-    int start = 4;
-    int starty = 3;
+  //  //legs
+  //  fill(0);
+  //  int start = 4;
+  //  int starty = 3;
 
-    rect(0+start, h-spacer + starty, 4, 4);
-    rect(4+start, 4+h-spacer + starty, 4, 4);
-    rect(8+start, h-spacer + starty, 4, 4);
-    rect(12+start, 4+h-spacer + starty, 4, 4);
-    rect(16+start, h-spacer + starty, 4, 4);
-    fill(0, 255, 255); 
-    rect(0+start, h+4-spacer + starty, 4, 4);
-    rect(4+start, h -spacer+ starty, 4, 4);
-    rect(8+start, 4+h-spacer + starty, 4, 4);
-    rect(12+start, h -spacer+ starty, 4, 4);
-    rect(16+start, 4+h-spacer + starty, 4, 4);
+  //  rect(0+start, h-spacer + starty, 4, 4);
+  //  rect(4+start, 4+h-spacer + starty, 4, 4);
+  //  rect(8+start, h-spacer + starty, 4, 4);
+  //  rect(12+start, 4+h-spacer + starty, 4, 4);
+  //  rect(16+start, h-spacer + starty, 4, 4);
+  //  fill(0, 255, 255); 
+  //  rect(0+start, h+4-spacer + starty, 4, 4);
+  //  rect(4+start, h -spacer+ starty, 4, 4);
+  //  rect(8+start, 4+h-spacer + starty, 4, 4);
+  //  rect(12+start, h -spacer+ starty, 4, 4);
+  //  rect(16+start, 4+h-spacer + starty, 4, 4);
 
-    //eyes
-    fill(255, 255, 0);
-    rect(8, h-spacer-4, 4, 4);
-    rect(16, h-4-spacer, 4, 4);
-    fill(0);
+  //  //eyes
+  //  fill(255, 255, 0);
+  //  rect(8, h-spacer-4, 4, 4);
+  //  rect(16, h-4-spacer, 4, 4);
+  //  fill(0);
 
-    int num =(frameCount/2) % 4;
-    if (num==1) {
-      rect(10, h-spacer-2, 3, 3);
-      rect(18, h-spacer-2, 3, 3);
-    } else {
-      rect(8, h-spacer-2, 3, 3);
-      rect(16, h-spacer-2, 3, 3);
-    }
-    popMatrix();
-  }
+  //  int num =(frameCount/2) % 4;
+  //  if (num==1) {
+  //    rect(10, h-spacer-2, 3, 3);
+  //    rect(18, h-spacer-2, 3, 3);
+  //  } else {
+  //    rect(8, h-spacer-2, 3, 3);
+  //    rect(16, h-spacer-2, 3, 3);
+  //  }
+  //  popMatrix();
+  //}
   void drawLightHouse() {
     pushMatrix();
     translate(x, y);
