@@ -8,7 +8,7 @@ class Obstacle {
   float vy;
   int spiderDir = 1;
   int level;
-  Obstacle(int _x, int _y,int _w, int _h, int _t) {
+  Obstacle(int _x, int _y, int _w, int _h, int _t) {
     x=_x;
     y=_y-platformHeight-h;
     type = _t;
@@ -19,7 +19,7 @@ class Obstacle {
 
   void show() {
 
-    
+
     if (type==house) {
       drawHouse();
     } else if (type==tree) {
@@ -79,7 +79,7 @@ class Obstacle {
       //add a treat.
       if (random(1000)<5) {
         //Treat t;
-        rtrn=new Treat(x, y,20,10,level,120, false);
+        rtrn=new Treat(x, y, 20, 10, level, 120, false);
       }
       x-=2;
       if (x==0) { 
