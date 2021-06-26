@@ -1,8 +1,7 @@
 class Spider extends Obstacle {
   int spiderDir = 1;
-  Spider(  
-    int _x, int _y, int _w, int _h) {
-    super(_x, _y, _w, _h, spider);
+  Spider(int _x, int _y, int _w, int _h) {
+    super(_x, _y, _w, _h);
   }
   Treat move() {
     h+=spiderDir;

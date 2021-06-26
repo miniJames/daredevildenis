@@ -1,7 +1,7 @@
 class Tree extends Obstacle {
 
   Tree(int _x, int _y, int _w, int _h) {
-    super(_x, _y, _w, _h, tree);
+    super(_x, _y, _w, _h);
   }
 
   void drawObstacle() {

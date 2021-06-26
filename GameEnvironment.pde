@@ -68,16 +68,16 @@ class GameEnvironment {
     l.platforms.add(new Platform(0, 375, color(0, 0, 255)));
     l.platforms.add(new Platform(0, height, color(0, 0, 255)));
 
-    l.obstacles.add(new Obstacle(100, 125, 40, 30, lighthouse));
+    l.obstacles.add(new Lighthouse(100, 125, 40, 30));
     l.treats.add(new Treat(110, 65, 20, 20, 1, 20, true));
 
     l.obstacles.add(new Spider(350, 415, 30, 30));
     l.treats.add(new Treat(350, height-20, 30, 20, 3, 20, true));
 
-    l.obstacles.add(new Obstacle(150, 385, 30, 20, whale));
+    l.obstacles.add(new Whale(150, 385, 30, 20));
     l.treats.add(new Treat(152, 325, 25, 20, 3, 20, true));
 
-    l.obstacles.add(new Obstacle(100, 250, 30, 35, boat));
+    l.obstacles.add(new Boat(100, 250, 30, 35));
     l.treats.add(new Treat(102, 185, 30, 20, 2, 20, true, true));
 
 
@@ -91,13 +91,13 @@ class GameEnvironment {
     l.platforms.add(new Platform(0, 375, color(255)));
     l.platforms.add(new Platform(0, height, color(255)));
 
-    l.obstacles.add(new Obstacle(175, 120, 30, 40, cabin));
+    l.obstacles.add(new Cabin(175, 120, 30, 40));
     l.treats.add(new Treat(180, 60, 25, 20, 1, 20, true));
     l.obstacles.add(new Spider(250, 415, 30, 30));
     l.treats.add(new Treat(250, height-20, 30, 20, 3, 20, true));
-    l.obstacles.add(new Obstacle(150, 255, 25, 25, snowball));
+    l.obstacles.add(new Snowball(150, 255, 25, 25));
     l.treats.add(new Treat(152, 190, 22, 25, 2, 20, true, true));
-    l.obstacles.add(new Obstacle(100, 375, 30, 30, snowman));
+    l.obstacles.add(new Snowman(100, 375, 30, 30));
     l.treats.add(new Treat(105, 305, 25, 30, 3, 20, true));
 
     //levels.add(l);
@@ -122,9 +122,9 @@ class GameEnvironment {
     l.obstacles.add(new House(250, height,30,30));
     l.treats.add(new Treat(250, height - 30, 28, 20, 4, 20, true));
 
-    l.obstacles.add(new Obstacle(width-125, 125,30,30, police));
+    l.obstacles.add(new Police(width-125, 125,30,30));
     l.treats.add(new Treat(width-125,125,10,20,1,20,true,false));
-    l.obstacles.add(new Obstacle(width, 465, 30,30, chopper));
+    l.obstacles.add(new Chopper(width, 465, 30,30));
 
 
     levels.add(l);
