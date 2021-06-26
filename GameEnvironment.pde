@@ -109,22 +109,22 @@ class GameEnvironment {
     l.platforms.add(new Platform(0, 375, color(0, 255, 0)));
     l.platforms.add(new Platform(0, height, color(0, 255, 0)));
 
-    l.obstacles.add(new House(125, 125,30,30));
+    l.obstacles.add(new House(125, 125, 30, 30));
     l.treats.add(new Treat(127, 60, 28, 20, 1, 20, true));
 
 
-    l.obstacles.add(new Tree(150, 375,30,30));
+    l.obstacles.add(new Tree(150, 375, 30, 30));
     l.treats.add(new Treat(148, 305, 28, 20, 3, 20, true, false));
 
-    l.obstacles.add(new Ambulance(150, 250,30,30));
+    l.obstacles.add(new Ambulance(150, 250, 30, 30));
     l.treats.add(new Treat(150, 185, 25, 22, 2, 20, true, true));
 
-    l.obstacles.add(new House(250, height,30,30));
+    l.obstacles.add(new House(250, height, 30, 30));
     l.treats.add(new Treat(250, height - 30, 28, 20, 4, 20, true));
 
-    l.obstacles.add(new Police(width-125, 125,30,30));
-    l.treats.add(new Treat(width-125,125,10,20,1,20,true,false));
-    l.obstacles.add(new Chopper(width, 465, 30,30));
+    l.obstacles.add(new Police(width-125, 125, 30, 30));
+    l.treats.add(new Treat(width-125, 125, 10, 20, 1, 20, true, false));
+    l.obstacles.add(new Chopper(width, 465, 30, 30));
 
 
     levels.add(l);
@@ -133,114 +133,121 @@ class GameEnvironment {
   void show() {
     fill(0, 0, 255);
     rect(0, 0, width, 20);
-    fill(255, 255, 0);
-    String wages = "WAGES :";
-    wages =wages + score;
 
-
-    float wd = textWidth(wages);
-
-    text(wages, width/2-(wd/2), 15);
-
+    showWages();
 
     levels.get(currentLevel).show(d);
     if (gameState==runState) {
       d.state = levels.get(currentLevel).playerState;
-    }
-    //println("gamestate:" + gameState + ": level " + d.level );
-    if (gameState==runState) {
-      d.show();
-      d.move();
-
-      if (d.hitObstacle) {
-        gameState=crashing;
-      }
-      if (d.foundTreat) {
-        d.foundTreat = false;
-        score += d.treatValue;
-        d.treatValue=0;
-      }
-      println("DENIS LEVEL:", d.level);
-      if (d.level==4 ) {
-        currentLevel++;
-        d.level=0;
-        //println( d.state);
-        //println(gameState);
-        if (currentLevel>=levels.size()) {
-          //gameState = menu;
-          currentLevel=0;
-          d.reset();
-        } else {
-          d.reset();//=new DDD(levels.get(currentLevel).platforms);
-          d.platforms=levels.get(currentLevel).platforms;
-
-          d.state = levels.get(currentLevel).playerState;
-
-          //if (d.state>2) {
-          //  d.state = 0;
-          //}
-          //println("change ddd state" + d.state);
-        }
-      }
+      showRunState();
     } else if (gameState == menu) {
-      background(0);
-      fill(255);
-      text("Press <s> to start", 100, 100);
-
-      String story = "";
+      showMenu();
     } else if (gameState==dead) {
-
-      color c;
-      int num = frameCount % 8;
-      if (num==0) {
-        c=color(0, 0, 0);
-      } else if (num==1) {
-        c=color(255, 0, 0);
-      } else if (num==2) {
-        c=color(0, 255, 0);
-      } else if (num==3) {
-        c=color(0, 0, 255);
-      } else if (num==4) {
-        c=color(255, 255, 0);
-      } else if (num==5) {
-        c=color(255, 0, 255);
-      } else if (num==6) {
-        c=color(0, 255, 255);
-      } else if (num==7) {
-        c=color(255, 255, 255);
-      } else {
-        c=color(255, 255, 0);
-      }
-
-      fill(c);
-      text("YOU'RE FIRED", width/2-20, height/2-30);
-
-      if (deadStart + 300 == frameCount) {
-        gameState = menu;  
-        d.reset();
-        currentLevel=0;
-        lives=3;
-      }
+      showDeadState();
     } else if (gameState==takeSequence) {
       drawTakeSequence();
     } else if (gameState==crashing) {
-      d.show();
-      //println("CRASHING:");
-      if (frameCount > d.frameStartCrash + 200) {
+      showCrashing();
+    }
+  }
 
-        if (lives==1) {
-          gameState = dead;
-          deadStart=frameCount;
-        } else {
-          d.state =d.origState; 
-          d.reset();
-          lives --;
-          gameState = takeSequence;
-          startTakeSequence();
-        }
-        prepareLevels();
-        println("CRASH SEQUENCE OVER");
+  void showWages() {
+    fill(255, 255, 0);
+    String wages = "WAGES :";
+    wages =wages + score;
+    float wd = textWidth(wages);
+    text(wages, width/2-(wd/2), 15);
+  }
+
+  void showRunState() {
+    d.show();
+    d.move();
+
+    if (d.hitObstacle) {
+      gameState=crashing;
+    }
+    if (d.foundTreat) {
+      d.foundTreat = false;
+      score += d.treatValue;
+      d.treatValue=0;
+    }
+    println("DENIS LEVEL:", d.level);
+    if (d.level==4 ) {
+      currentLevel++;
+      d.level=0;
+      //println( d.state);
+      //println(gameState);
+      if (currentLevel>=levels.size()) {
+        //gameState = menu;
+        currentLevel=0;
+        d.reset();
+      } else {
+        d.reset();//=new DDD(levels.get(currentLevel).platforms);
+        d.platforms=levels.get(currentLevel).platforms;
+
+        d.state = levels.get(currentLevel).playerState;
       }
+    }
+  }
+  
+  void showDeadState() {
+
+    color c;
+    int num = frameCount % 8;
+    if (num==0) {
+      c=color(0, 0, 0);
+    } else if (num==1) {
+      c=color(255, 0, 0);
+    } else if (num==2) {
+      c=color(0, 255, 0);
+    } else if (num==3) {
+      c=color(0, 0, 255);
+    } else if (num==4) {
+      c=color(255, 255, 0);
+    } else if (num==5) {
+      c=color(255, 0, 255);
+    } else if (num==6) {
+      c=color(0, 255, 255);
+    } else if (num==7) {
+      c=color(255, 255, 255);
+    } else {
+      c=color(255, 255, 0);
+    }
+
+    fill(c);
+    text("YOU'RE FIRED", width/2-20, height/2-30);
+
+    if (deadStart + 300 == frameCount) {
+      gameState = menu;  
+      d.reset();
+      currentLevel=0;
+      lives=3;
+    }
+  }
+  void showMenu() {
+    background(0);
+    fill(255);
+    text("Press <s> to start", 100, 100);
+
+    String story = "";
+  }
+  void showCrashing() {
+    d.show();
+    //println("CRASHING:");
+    if (frameCount > d.frameStartCrash + 200) {
+
+      if (lives==1) {
+        gameState = dead;
+        deadStart=frameCount;
+      } else {
+        d.state =d.origState; 
+        d.reset();
+        lives --;
+        gameState = takeSequence;
+        startTakeSequence();
+      }
+      prepareLevels();
+      println("CRASH SEQUENCE OVER");
     }
   }
 
